@@ -118,7 +118,7 @@ public class BaseCommands extends BaseTest {
 		actions.moveToElement(driver.findElement(locator)).click().perform();
 	}
 
-	public void SelectOptionFromDropDown(By selectOption,int index) {		
+	public void SelectOptionFromDropDown(By selectOption) {		
 		Select selectOptionList=new Select (driver.findElement(selectOption));
 		int numberOfSlots = selectOptionList.getOptions().size();
 		

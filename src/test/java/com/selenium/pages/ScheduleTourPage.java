@@ -27,7 +27,7 @@ public class ScheduleTourPage {
 	public void selectDateAndTime(){
 		bc.clickParticularDateFromTable(scheduleTourPageMap.DatePicker(),scheduleTourPageMap.DateTable());
 		bc.locateElement(scheduleTourPageMap.DatePicker());
-		bc.SelectOptionFromDropDown(scheduleTourPageMap.SelectTime(),2);
+		bc.SelectOptionFromDropDown(scheduleTourPageMap.SelectTime());
 	}
 
 	public void enterPersonalInfo(){
