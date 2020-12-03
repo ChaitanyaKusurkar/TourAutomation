@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Parameter test Suite" verbose="1">
+    <!-- This parameter will be passed to every test in this suite -->
+    <parameter name="browser" value="chrome" />
+    <parameter name="url" value="https://knockrentals.github.io/doorway-v3/" />
+    <parameter name="wait" value="30" />
+    <test name="Open Website">
+        <classes>
+            <class name="com.selenium.cases.ScheduleAppointment">
+                <methods>
+                    <include name="bookAppointment" />
+                </methods>   
+            </class>
+        </classes>
+    </test>
+ </suite>   
