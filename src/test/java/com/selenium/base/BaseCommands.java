@@ -1,6 +1,7 @@
 package com.selenium.base;
 
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -119,7 +120,11 @@ public class BaseCommands extends BaseTest {
 
 	public void SelectOptionFromDropDown(By selectOption,int index) {		
 		Select selectOptionList=new Select (driver.findElement(selectOption));
-		selectOptionList.selectByIndex(index);
+		int numberOfSlots = selectOptionList.getOptions().size();
+		
+		Random rand = new Random(); 
+		int randomSlot = rand.nextInt(numberOfSlots);
+		selectOptionList.selectByIndex(randomSlot);
 	}
 
 	//The elements in this method are currently hardcoded due to StaleElementExceptions generated because of absence of Element from DOM.
@@ -139,7 +144,7 @@ public class BaseCommands extends BaseTest {
 		    List<WebElement> cols = row.findElements(By.tagName("td"));
 		    columnIndex=1;
 		    for (WebElement col : cols) {
-		        if(col.getAttribute("innerHTML").contentEquals("9")){
+		        if(col.getAttribute("innerHTML").contentEquals("10")){
 		        	WebElement cell=driver.findElement(By.xpath("//div[@class='CalendarMonthGrid_month__horizontal CalendarMonthGrid_month__horizontal_1']//table[@class='CalendarMonth_table CalendarMonth_table_1']//tbody//tr" +"[" + i + "]" + "//td" + "[" + columnIndex + "]"));	
 		        	actions.moveToElement(cell).build().perform();
 		        	cell.click();
